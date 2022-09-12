@@ -11,8 +11,7 @@ function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!errorMessage) {
-      setFormState({ [e.target.name]: e.target.value });
-      console.log('Form', formState);
+      console.log('Submit Form', formState);
     }
   };
 
@@ -31,8 +30,11 @@ function ContactForm() {
         setErrorMessage('');
       }
     }
+    if (!errorMessage) {
+      setFormState({ ...formState, [e.target.name]: e.target.value });
+      console.log('Handle Form', formState);
+    }
   };
-  console.log(errorMessage);
 
   return (
     <section>
